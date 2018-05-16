@@ -1,8 +1,11 @@
 package com.salesianostriana.proyecto.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 
@@ -12,7 +15,11 @@ public class Categorias {
 	private String sudaderas;
 	private String musica;
 	@Id @GeneratedValue
-	private long id;
+	private Long id;
+	
+
+	@OneToMany
+	private Set<Productos> producto;
 	
 	public Categorias(String camisetas, String sudaderas, String musica) {
 		super();
@@ -43,6 +50,14 @@ public class Categorias {
 
 	public void setMusica(String musica) {
 		this.musica = musica;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package com.salesianostriana.proyecto.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,22 +12,22 @@ public class Productos {
 	
 	private String nombre;
 	@Id @GeneratedValue
-	private long id;
+	private Long id;
 	private String descripcion;
 	private double precio;
 	private String marca;
 	private String color;
 	private String talla;
 	private int cantidad;
-	@OneToOne
 	private Categorias categoria;
+	@OneToOne
+	private Set<Categorias> categorias;
 	
 	
-	public Productos(String nombre, long id, String descripcion, double precio, String marca, String color,
+	public Productos(String nombre, String descripcion, double precio, String marca, String color,
 			String talla, int cantidad) {
 		super();
 		this.nombre = nombre;
-		this.id = id;
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.marca = marca;
