@@ -1,39 +1,42 @@
 package com.salesianostriana.proyecto.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 
 public class LineaPedido {
-	
-	
+
 	@ManyToOne
-	private Set<Pedido> pedido;
-	private Productos producto;
+	private Pedido pedido;
+	@OneToMany(cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
+	private Set<Productos> producto = new HashSet<Productos>();
 	private int cantidad;
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue
 	private Long id;
-	
+
 	public LineaPedido() {
-		super();
+
 	}
 
-	public LineaPedido(Productos producto, int cantidad) {
-		super();
-		this.producto = producto;
+	public LineaPedido(int cantidad) {
 		this.cantidad = cantidad;
 	}
 
-	public Productos getProducto() {
+	public Set<Productos> getProducto() {
 		return producto;
 	}
 
-	public void setProducto(Productos producto) {
+	public void setProducto(Set<Productos> producto) {
 		this.producto = producto;
 	}
 
@@ -57,9 +60,5 @@ public class LineaPedido {
 	public String toString() {
 		return "LineaPedido [producto=" + producto + ", cantidad=" + cantidad + ", id=" + id + "]";
 	}
-	
-	
-	
-	
-	
+
 }

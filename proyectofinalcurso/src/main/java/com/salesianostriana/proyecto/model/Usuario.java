@@ -19,8 +19,9 @@ public class Usuario {
 	private String nombreUsuario;
 	@Id @GeneratedValue
 	private Long id;
+	
 	@ManyToOne
-	private Set<Administrador> administrador;
+	private Administrador administrador;
 	
 	public Usuario() {
 		super();

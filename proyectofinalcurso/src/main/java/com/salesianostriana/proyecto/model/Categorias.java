@@ -1,8 +1,10 @@
 package com.salesianostriana.proyecto.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -17,9 +19,8 @@ public class Categorias {
 	@Id @GeneratedValue
 	private Long id;
 	
-
-	@OneToMany
-	private Set<Productos> producto;
+	@OneToMany(fetch=FetchType.EAGER)
+	Set<Productos> productos = new HashSet<Productos>();
 	
 	public Categorias(String camisetas, String sudaderas, String musica) {
 		super();

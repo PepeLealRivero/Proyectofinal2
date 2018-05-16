@@ -1,11 +1,9 @@
 package com.salesianostriana.proyecto.model;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Productos {
@@ -19,9 +17,11 @@ public class Productos {
 	private String color;
 	private String talla;
 	private int cantidad;
-	private Categorias categoria;
-	@OneToOne
-	private Set<Categorias> categorias;
+	@ManyToOne
+	private LineaPedido lineaPedido;
+	
+	@ManyToOne
+	private Categorias categorias;
 	
 	
 	public Productos(String nombre, String descripcion, double precio, String marca, String color,

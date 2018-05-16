@@ -1,8 +1,10 @@
 package com.salesianostriana.proyecto.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -20,8 +22,9 @@ public class Administrador {
 	@Id @GeneratedValue
 	private Long id;
 	private boolean admin;
-	@OneToMany
-	private Set<Usuario> usuario;
+	
+	@OneToMany(fetch=FetchType.EAGER)
+	Set<Usuario> Usuarios = new HashSet<Usuario>();
 	
 	
 	public Administrador() {
