@@ -1,11 +1,13 @@
 package com.salesianostriana.proyecto.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 
@@ -19,9 +21,9 @@ public class Usuario {
 	private String nombreUsuario;
 	@Id @GeneratedValue
 	private Long id;
-	
-	@ManyToOne
-	private Administrador administrador;
+	// TODO: Puede bajar la nota si no se ha escogido correctamente. Falta el atributo mappedBy
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="usuario")
+	Set<Pedido> pedido = new HashSet<Pedido>();
 	
 	public Usuario() {
 		super();

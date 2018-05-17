@@ -9,12 +9,17 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
 
 public class Pedido {
 	
+	@ManyToOne
+	private Usuario usuario;
+	
+	//TODO: ¿Falta el mappedBy?
 	@OneToMany(cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
 	Set<LineaPedido> lineasDePedido = new HashSet<LineaPedido>();
 	
@@ -52,7 +57,8 @@ public class Pedido {
 		return "Pedido [id=" + id + ", fecha=" + fecha + ","  + "]";
 	}
 	
-	
+	//TODO: Añadir los métodos helper para añadir/borrar lineas de pedido de un pedido. Puedes ver el ejemplo 4 de OneToMany
+	// 
 	
 	
 

@@ -1,9 +1,14 @@
 package com.salesianostriana.proyecto.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Productos {
@@ -17,8 +22,9 @@ public class Productos {
 	private String color;
 	private String talla;
 	private int cantidad;
-	@ManyToOne
-	private LineaPedido lineaPedido;
+	// TODO: Quitar
+	@OneToMany(fetch=FetchType.EAGER)
+	Set<LineaPedido> lineaPedido = new HashSet<LineaPedido>();
 	
 	@ManyToOne
 	private Categorias categorias;
