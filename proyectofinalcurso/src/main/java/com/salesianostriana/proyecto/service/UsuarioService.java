@@ -25,7 +25,7 @@ public class UsuarioService {
 		return userRep.save(entidad);
 	}
 	
-	public Usuario edit
+	
 
 	
 

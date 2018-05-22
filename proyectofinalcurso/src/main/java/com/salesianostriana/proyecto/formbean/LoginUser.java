@@ -4,41 +4,41 @@ package com.salesianostriana.proyecto.formbean;
 public class LoginUser {
 
 	
-	private String usuario;
+	private String nombreUsuario;
 
-	private String pass;
+	private String contrasenia;
 
 	public LoginUser() {
 		super();
 	}
 
-	public LoginUser(String usuario, String pass) {
-		this.usuario = usuario;
-		this.pass = pass;
+	public LoginUser(String nombreUsuario, String contrasenia) {
+		this.nombreUsuario = nombreUsuario;
+		this.contrasenia = contrasenia;
 	}
 
-	public String getUsuario() {
-		return usuario;
+	public String getNombreUsuario() {
+		return nombreUsuario;
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
 	}
 
-	public String getPass() {
-		return pass;
+	public String getContrasenia() {
+		return contrasenia;
 	}
 
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((pass == null) ? 0 : pass.hashCode());
-		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
+		result = prime * result + ((contrasenia == null) ? 0 : contrasenia.hashCode());
+		result = prime * result + ((nombreUsuario == null) ? 0 : nombreUsuario.hashCode());
 		return result;
 	}
 
@@ -51,22 +51,22 @@ public class LoginUser {
 		if (getClass() != obj.getClass())
 			return false;
 		LoginUser other = (LoginUser) obj;
-		if (pass == null) {
-			if (other.pass != null)
+		if (contrasenia == null) {
+			if (other.contrasenia != null)
 				return false;
-		} else if (!pass.equals(other.pass))
+		} else if (!contrasenia.equals(other.contrasenia))
 			return false;
-		if (usuario == null) {
-			if (other.usuario != null)
+		if (nombreUsuario == null) {
+			if (other.nombreUsuario != null)
 				return false;
-		} else if (!usuario.equals(other.usuario))
+		} else if (!nombreUsuario.equals(other.nombreUsuario))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "LoginUser [usuario=" + usuario + ", pass=" + pass + "]";
+		return "LoginUser [usuario=" + nombreUsuario + ", pass=" + contrasenia + "]";
 	}
 
 }

@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping
 
 public class AdminController {
-	
+
 	@Autowired
 	private HttpSession session;
-	
+
 	@GetMapping
 	public String login(Model model) {
 		model.addAttribute("usuario", session.getAttribute("usuarioActual"));
