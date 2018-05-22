@@ -1,8 +1,8 @@
 package com.salesianostriana.proyecto.model;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -19,9 +19,9 @@ public class Pedido {
 	@ManyToOne
 	private Usuario usuario;
 	
-	//TODO: ¿Falta el mappedBy?
-	@OneToMany(cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
-	Set<LineaPedido> lineasDePedido = new HashSet<LineaPedido>();
+	
+	@OneToMany(cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER, mappedBy="pedido")
+	private List<LineaPedido> lineaPedido;
 	
 	@Id @GeneratedValue
 	private Long id;
@@ -31,9 +31,19 @@ public class Pedido {
 		super();
 	}
 
-	public Pedido(LocalDateTime fecha) {
+	public Pedido(LocalDateTime fecha, LineaPedido lineaPedido) {
 		super();
 		this.fecha = fecha;
+		this.lineaPedido = new ArrayList<LineaPedido>();
+	}
+	
+
+	public List<LineaPedido> getLineaPedido() {
+		return lineaPedido;
+	}
+
+	public void setLineaPedido(List<LineaPedido> lineaPedido) {
+		this.lineaPedido = lineaPedido;
 	}
 
 	public long getId() {
@@ -56,10 +66,21 @@ public class Pedido {
 	public String toString() {
 		return "Pedido [id=" + id + ", fecha=" + fecha + ","  + "]";
 	}
+	 
 	
-	//TODO: Añadir los métodos helper para añadir/borrar lineas de pedido de un pedido. Puedes ver el ejemplo 4 de OneToMany
-	// 
+	public void addLinea(LineaPedido lp) {
+		if (lp != null) {
+			lp.setPedido(this);
+			this.getLineaPedido().add(lp);
+		}
+	}
 	
-	
+
+	public void removeLinea(LineaPedido lp) {
+		if (lp != null) {
+			lp.setPedido(null);
+			this.getLineaPedido().remove(lp);
+		}
+	}
 
 }

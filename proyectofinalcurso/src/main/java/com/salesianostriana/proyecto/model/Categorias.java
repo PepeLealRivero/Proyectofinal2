@@ -18,8 +18,7 @@ public class Categorias {
 	private String musica;
 	@Id @GeneratedValue
 	private Long id;
-	//TODO: ¿Es necesario que la asociación sea bidireccional? De ser que SÍ, falta el mappedBy
-	@OneToMany(fetch=FetchType.EAGER)
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="categorias")
 	Set<Productos> productos = new HashSet<Productos>();
 	
 	public Categorias(String camisetas, String sudaderas, String musica) {

@@ -102,7 +102,7 @@ public class SecurityConfiguration {
 			if (session.getAttribute("usuarioActual") == null) {
 				response.sendRedirect("/");
 				return;
-			} else if (!((Administrador) session.getAttribute("usuarioActual")).isAdmin()) {
+			} else if ((boolean) (session.getAttribute("usuarioActual"))) {
 				response.sendRedirect("/app/");
 				return;
 			} else

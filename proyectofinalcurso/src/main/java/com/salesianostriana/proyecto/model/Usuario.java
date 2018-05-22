@@ -21,8 +21,7 @@ public class Usuario {
 	private String nombreUsuario;
 	@Id @GeneratedValue
 	private Long id;
-	// TODO: Puede bajar la nota si no se ha escogido correctamente. Falta el atributo mappedBy
-	@OneToMany(fetch=FetchType.EAGER, mappedBy="usuario")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="usuario")
 	Set<Pedido> pedido = new HashSet<Pedido>();
 	
 	public Usuario() {

@@ -20,6 +20,12 @@ public class UsuarioService {
 	public Usuario findOne(Long id) {
 		return userRep.findById(id).orElse(null);
 	}
+	
+	public Usuario save(Usuario entidad) {
+		return userRep.save(entidad);
+	}
+	
+	public Usuario edit
 
 	
 

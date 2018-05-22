@@ -20,5 +20,10 @@ public class PedidoService {
 	public Pedido findOne(Long id) {
 		return pedRep.findById(id).orElse(null);
 	}
+	
+	public Pedido save(Pedido entidad) {
+		return pedRep.save(entidad);
+	}
+	
 
 }

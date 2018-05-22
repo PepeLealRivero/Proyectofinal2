@@ -16,16 +16,14 @@ public class Administrador {
 	private String nombreUsuario;
 	@Id
 	@GeneratedValue
-	private Long id;
-	//TODO: Quitarlo
-	private boolean admin;
+	private Long id;	
 
 	public Administrador() {
 		super();
 	}
 
 	public Administrador(String nombre, String apellidos, String edad, String email, String contrasenia,
-			String nombreUsuario, boolean admin) {
+			String nombreUsuario) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -33,7 +31,6 @@ public class Administrador {
 		this.email = email;
 		this.contrasenia = contrasenia;
 		this.nombreUsuario = nombreUsuario;
-		this.admin = admin;
 	}
 
 	public String getNombre() {
@@ -92,19 +89,12 @@ public class Administrador {
 		this.id = id;
 	}
 
-	public boolean isAdmin() {
-		return admin;
-	}
-
-	public void setAdmin(boolean admin) {
-		this.admin = admin;
-	}
+	
 
 	@Override
 	public String toString() {
 		return "Administrador [nombre=" + nombre + ", apellidos=" + apellidos + ", edad=" + edad + ", email=" + email
-				+ ", contrasenia=" + contrasenia + ", nombreUsuario=" + nombreUsuario + ", id=" + id + ", admin="
-				+ admin + "]";
+				+ ", contrasenia=" + contrasenia + ", nombreUsuario=" + nombreUsuario + ", id=" + id + "]";
 	}
 
 }
