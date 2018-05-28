@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>sistema de login</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -52,20 +53,20 @@
             <span class="glyphicon glyphicon-user"></span>
         </div>
         <div class="ContentForm">
-		 	<form action="" method="post" name="FormEntrar">
+		 	<form th:action="@{/checkLogin}" method="post" name="FormEntrar" th:object="${loginUser}">
 		 		<div class="input-group input-group-lg">
 				  <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-envelope"></i></span>
-				  <input type="email" class="form-control" name="correo" placeholder="Correo" id="Correo" aria-describedby="sizing-addon1" required>
+				  <input th:field="*{email}" type="email" class="form-control" name="correo" placeholder="Correo" id="Correo" aria-describedby="sizing-addon1" required>
 				</div>
 				<br>
 				<div class="input-group input-group-lg">
 				  <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-lock"></i></span>
-				  <input type="password" name="contra" class="form-control" placeholder="******" aria-describedby="sizing-addon1" required>
+				  <input th:field="*{contrasenia}" type="password" name="contra" class="form-control" placeholder="******" aria-describedby="sizing-addon1" required>
 				</div>
 				<br>
 				<button class="btn btn-lg btn-primary btn-block btn-signin" id="IngresoLog" type="submit">Entrar</button>
-                <div class="opcioncontra"><a href="">Olvidaste tu contraseña?</a></div>
-                <div class="opcioncontra"><a href="">No tienes cuenta? Regístrate aquí</a></div>
+                <div class="opcioncontra"><a href="">Olvidaste tu contraseÃ±a?</a></div>
+                <div class="opcioncontra"><a href="">No tienes cuenta? RegÃ­strate aquÃ­</a></div>
 		 	</form>
 		</div>	
 	</div>

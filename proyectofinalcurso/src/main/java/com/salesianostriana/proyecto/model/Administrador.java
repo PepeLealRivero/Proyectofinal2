@@ -6,7 +6,7 @@ import javax.persistence.Id;
 
 @Entity
 
-public class Administrador {
+public class Administrador extends Usuario {
 
 	private String nombre;
 	private String apellidos;

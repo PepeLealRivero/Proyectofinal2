@@ -20,6 +20,11 @@ public class AdminController {
 	public String login(Model model) {
 		model.addAttribute("usuario", session.getAttribute("usuarioActual"));
 		return "admin/index";
+	
 	}
+	
+	
+	
+	
 
 }
