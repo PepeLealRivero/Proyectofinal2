@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 
 public class GaleriaController {
-	@GetMapping({ "/", "/Galeria" })
+	@GetMapping({ "/Galeria" })
 	public String Galeria() {
 		return "Galeria";
 	}

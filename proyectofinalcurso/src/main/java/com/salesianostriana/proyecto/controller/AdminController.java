@@ -9,17 +9,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping
-
+@RequestMapping("/admin")
 public class AdminController {
 
 	@Autowired
 	private HttpSession session;
 
-	@GetMapping
+	@GetMapping({"/", "", "inicio"})
 	public String login(Model model) {
 		model.addAttribute("usuario", session.getAttribute("usuarioActual"));
-		return "admin/index";
+		return "admin/inicio";
 	
 	}
 	

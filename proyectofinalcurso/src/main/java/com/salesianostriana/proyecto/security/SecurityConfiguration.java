@@ -16,7 +16,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.salesianostriana.proyecto.model.Administrador;
+import com.salesianostriana.proyecto.model.Usuario;
 
 @Configuration
 public class SecurityConfiguration {
@@ -102,7 +102,7 @@ public class SecurityConfiguration {
 			if (session.getAttribute("usuarioActual") == null) {
 				response.sendRedirect("/");
 				return;
-			} else if ((boolean) (session.getAttribute("usuarioActual"))) {
+			} else if (!((Usuario) session.getAttribute("usuarioActual")).isAdmin()) {
 				response.sendRedirect("/app/");
 				return;
 			} else
@@ -118,4 +118,3 @@ public class SecurityConfiguration {
 	}
 
 }
-

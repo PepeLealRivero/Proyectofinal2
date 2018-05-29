@@ -1,13 +1,10 @@
 package com.salesianostriana.proyecto.service;
 
-import javax.persistence.TypedQuery;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.proyecto.model.Usuario;
 import com.salesianostriana.proyecto.repo.UsuarioRepository;
-import javax.persistence.EntityManager;
 
 @Service
 

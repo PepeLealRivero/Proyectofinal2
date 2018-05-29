@@ -20,7 +20,7 @@ public class Productos {
 	private String imagen;
 	
 	
-	@ManyToOne
+	@ManyToOne 
 	private Categorias categorias;
 	
 	
